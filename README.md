@@ -23,9 +23,10 @@ It also works using local and internet url addresses:
 ## Search Movies
 
 When a user inputs a movie name into the search bar, it takes the movie title and sends a query to the database.  
-- There is no such movie - alert message "A movie you're searching is not fount!" 
-- A movie is already in the list - alert message 'This movie is already exists in the list.'
-- Found a movie - alert message 'A movie was successfully added to the list!' appears.  
+There will appear the alert messages according to the responds from the database.
+- "A movie you're searching is not fount!" 
+- "This movie is already exists in the list."
+- "A movie was successfully added to the list!"  
 
 ## Create A Movie
 
