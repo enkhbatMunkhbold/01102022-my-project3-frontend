@@ -15,11 +15,17 @@ I always dreamt to build perfect, shiny movie-search app. After learning React, 
 
 ## Work Environment
 
-The app works locally, using url addresss <http://localhost:3000> which means it is hosted in node server and on port 3000. Also, one can visit this website with the link <https://idyllic-dolphin-bd7a83.netlify.app>. The app uses Open Movie Database API to fetch a movie that an user searched.
+The app uses Open Movie Database API to fetch a movie that an user searches. 
+It also works using local and internet url addresses:
+- local - <http://localhost:3000>  
+- internet - <https://idyllic-dolphin-bd7a83.netlify.app>. 
 
 ## Search Movies
 
- When a user inputs a movie name into the search bar, it takes the movie title and sends a query to the database. If it doesn't find the movie with the inputted title, then an alert message "A movie you're searching is not fount!" appears. Similarly, if a movie is already in the list, an alert message 'This movie is already exists in the list' shows up. Otherwise, a new movie will add up at the end of the list.
+When a user inputs a movie name into the search bar, it takes the movie title and sends a query to the database.  
+- There is no such movie - alert message "A movie you're searching is not fount!" 
+- A movie is already in the list - alert message 'This movie is already exists in the list.'
+- Found a movie - alert message 'A movie was successfully added to the list!' appears.  
 
 ## Create A Movie
 
