@@ -22,11 +22,7 @@ It also works using local and internet url addresses:
 
 ## Search Movies
 
-When a user inputs a movie name into the search bar, it takes the movie title and sends a query to the database.  
-There will appear the alert messages according to the responds from the database.
-- "A movie you're searching is not fount!" 
-- "This movie is already exists in the list."
-- "A movie was successfully added to the list!"  
+ When a user inputs a movie name into the search bar, it takes the movie title and sends a query to the database. If it doesn't find the movie with the inputted title, then an alert message "A movie you're searching is not fount!" appears. Similarly, if a movie is already in the list, an alert message 'This movie is already exists in the list' shows up. Otherwise, a new movie will add up at the end of the list.
 
 ## Create A Movie
 
@@ -42,4 +38,4 @@ If the user want to remove the movie from the list of searched movies, then he/s
 
 ## Demo
 
-![World of Movies](https://user-images.githubusercontent.com/33409864/189276886-c845b389-a5e1-4852-963b-ba47f044af1f.gif)
+Here is an example of how the app works.

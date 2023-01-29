@@ -73,7 +73,7 @@ const MovieCard = ({ movie, handleUpdate, handleRemoveMovie }) => {
         </IconButton>
         <div>
           <MovieDetails movie={movie}/>
-        </div>          
+        </div>
         <IconButton
           aria-label='delete'
           onClick={handleDelete}

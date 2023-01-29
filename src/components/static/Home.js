@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useState } from 'react';
 import { makeStyles, createTheme } from '@material-ui/core/styles';
 import clapperBoard from '../images/clapperboard.png';
 import camera from '../images/video-camera.png';
@@ -11,7 +10,6 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
-import NewComponent from './NewComponent';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -68,27 +66,6 @@ const Home = () => {
     }
   });
 
-  /****************** Interview Assignment *****************/
-  
-  // const [num, setNum] = useState(0)
-  // const [input, setInput] = useState('')  
-
-  // const handleChange = e => {
-  //   setInput(e.target.value)
-  // }
-
-  // const handleSubmit = e => {
-  //   e.preventDefault()
-  //   e.target.input.value = ''
-  //   setInput('')
-  //   if(input.length > 0) {
-  //     let newNum = num + input.length
-  //     setNum(newNum)
-  //   } 
-  // }
-
-  /***********************************************************/
-
   const handleFacebookBtn = () => {
     window.location.href = 'https://www.facebook.com'
   }
@@ -137,18 +114,7 @@ const Home = () => {
         </Grid> 
         <Grid item xs={10}>
         </Grid>                 
-      </Grid> 
-
-      {/************************* Interview Assignment ***************************/}
-
-      {/* <form onSubmit={handleSubmit}>
-        <input type="text" name="input" onChange={handleChange}></input>
-        <button>Click Me</button> 
-        <h2>{num}</h2>
-      </form>       */}
-
-      {/**************************************************************************/}
-      <NewComponent/>
+      </Grid>
     </Box>
   )
 }

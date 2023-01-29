@@ -1,28 +1,6 @@
 {
   "movies": [
     {
-      "name": "The Godfather",
-      "actors": "Marlon Brando, Al Pacino, James Caan",
-      "img_link": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
-      "genre": "Crime, Drama",
-      "year": 1972,
-      "plot": "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son.",
-      "rating": "9.2/10",
-      "favorite": true,
-      "id": 1
-    },
-    {
-      "name": "Schindler's List",
-      "actors": "Liam Neeson, Ralph Fiennes, Ben Kingsley",
-      "img_link": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
-      "genre": "Biography, Drama, History",
-      "year": 1993,
-      "plot": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
-      "rating": "9.0/10",
-      "favorite": false,
-      "id": 2
-    },
-    {
       "name": "Gone with the Wind",
       "actors": "Clark Gable, Vivien Leigh, Thomas Mitchell",
       "img_link": "https://m.media-amazon.com/images/M/MV5BYjUyZWZkM2UtMzYxYy00ZmQ3LWFmZTQtOGE2YjBkNjA3YWZlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
@@ -34,17 +12,6 @@
       "id": 3
     },
     {
-      "name": "The Ring",
-      "actors": "Naomi Watts, Martin Henderson, Brian Cox",
-      "img_link": "https://m.media-amazon.com/images/M/MV5BNDA2NTg2NjE4Ml5BMl5BanBnXkFtZTYwMjYxMDg5._V1_SX300.jpg",
-      "genre": "Horror, Mystery",
-      "year": 2002,
-      "plot": "A journalist must investigate a mysterious videotape which seems to cause the death of anyone one week to the day after they view it.",
-      "rating": "7.1/10",
-      "favorite": true,
-      "id": 9
-    },
-    {
       "name": "Finding Nemo",
       "actors": "Albert Brooks, Ellen DeGeneres, Alexander Gould",
       "img_link": "https://m.media-amazon.com/images/M/MV5BZTAzNWZlNmUtZDEzYi00ZjA5LWIwYjEtZGM1NWE1MjE4YWRhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
@@ -52,7 +19,7 @@
       "year": 2003,
       "plot": "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.",
       "rating": "8.2/10",
-      "favorite": true,
+      "favorite": false,
       "id": 16
     },
     {
@@ -65,17 +32,6 @@
       "rating": "7.3/10",
       "favorite": false,
       "id": 18
-    },
-    {
-      "name": "Black Hawk Down",
-      "actors": "Josh Hartnett, Ewan McGregor, Tom Sizemore",
-      "img_link": "https://m.media-amazon.com/images/M/MV5BYWMwMzQxZjQtODM1YS00YmFiLTk1YjQtNzNiYWY1MDE4NTdiXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
-      "genre": "Action, Drama, History",
-      "year": 2001,
-      "plot": "The story of 160 elite U.S. soldiers who dropped into Mogadishu in October 1993 to capture two top lieutenants of a renegade warlord, but found themselves in a desperate battle with a large force of heavily-armed Somalis.",
-      "rating": "7.7/10",
-      "favorite": false,
-      "id": 30
     },
     {
       "name": "The Good, the Bad and the Ugly",
@@ -96,74 +52,63 @@
       "year": 2007,
       "plot": "A comprehensive look at the Bush Administration's conduct of the Iraq war and its occupation of the country.",
       "rating": "8.2/10",
-      "favorite": false,
+      "favorite": true,
       "id": 36
     },
     {
-      "name": "Night at the Museum",
-      "actors": "Ben Stiller, Carla Gugino, Ricky Gervais",
-      "img_link": "https://m.media-amazon.com/images/M/MV5BMTQyOTM4MDMxN15BMl5BanBnXkFtZTcwODg5NTQzMw@@._V1_SX300.jpg",
-      "genre": "Adventure, Comedy, Family",
-      "year": 2006,
-      "plot": "A newly recruited night security guard at the Museum of Natural History discovers that an ancient curse causes the animals and exhibits on display to come to life and wreak havoc.",
-      "rating": "6.4/10",
-      "favorite": false,
-      "id": 43
+      "name": "Hahaha",
+      "actors": "Kim Sang-kyung, Moon So-ri, Joon-Sang Yoo",
+      "img_link": "https://m.media-amazon.com/images/M/MV5BODY4NzkzNjctNWQzYy00MWRmLThkZGUtOThjOTU4YTBlNTY0XkEyXkFqcGdeQXVyMzY2MDk0MTk@._V1_SX300.jpg",
+      "genre": "Comedy, Drama, Romance",
+      "year": 2010,
+      "plot": "Two friends, while having drinks together, share their memories of visiting the seaside resort of Tongyeong.",
+      "rating": "6.8/10",
+      "favorite": true,
+      "id": 37
     },
     {
-      "name": "Mission: Impossible III",
-      "actors": "Tom Cruise, Michelle Monaghan, Ving Rhames",
-      "img_link": "https://m.media-amazon.com/images/M/MV5BOThhNTA1YjItYzk2Ny00M2Y1LWJlYWUtZDQyZDU0YmY5Y2M5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
-      "genre": "Action, Adventure, Thriller",
-      "year": 2006,
-      "plot": "IMF agent Ethan Hunt comes into conflict with a dangerous and sadistic arms dealer who threatens his life and his fiancée in response.",
+      "name": "The Mask",
+      "actors": "Jim Carrey, Cameron Diaz, Peter Riegert",
+      "img_link": "https://m.media-amazon.com/images/M/MV5BOWExYjI5MzktNTRhNi00Nzg2LThkZmQtYWVkYjRlYWI2MDQ4XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+      "genre": "Action, Comedy, Crime",
+      "year": 1994,
+      "plot": "Bank clerk Stanley Ipkiss is transformed into a manic superhero when he wears a mysterious mask.",
       "rating": "6.9/10",
       "favorite": false,
-      "id": 50
+      "id": 38
     },
     {
-      "name": "Troy",
-      "actors": "Brad Pitt, Eric Bana, Orlando Bloom",
-      "img_link": "https://m.media-amazon.com/images/M/MV5BMTk5MzU1MDMwMF5BMl5BanBnXkFtZTcwNjczODMzMw@@._V1_SX300.jpg",
-      "genre": "Drama, History",
-      "year": 2004,
-      "plot": "An adaptation of Homer's great epic, the film follows the assault on Troy by the united Greek forces and chronicles the fates of the men involved.",
-      "rating": "7.3/10",
-      "favorite": false,
-      "id": 62
-    },
-    {
-      "name": "Өглөө",
-      "actors": "Ц. Дашнамжил, Б. Амар, Ц. Цэрэндорж, З. Цэндээхүү, Д. Нямаа",
-      "img_link": "https://1.bp.blogspot.com/-idLOh4E_0U4/Wm9bWtYeMUI/AAAAAAAAAzw/eKmznCjqGm0XtrUaohYvmHMWjnkp5o8swCEwYBhgL/s1600/ogloo.jpg",
-      "genre": "Action, History, Drama",
-      "year": 1968,
-      "plot": "1921 оны Ардын хувьсгалын удирдагч, бүх цэргийн жанжин Д.Сүхбаатар тэргүүтэй ардын намынхан гадаад дотоодын дарлагчдыг устган эрх чөлөөт амьдралын өглөөг эх орондоо авчирч буйг харуулсан түүхэн уран сайхны кино.",
-      "rating": "8.3/10",
-      "favorite": false,
-      "id": 67
-    },
-    {
-      "name": "Говийн зэрэглээ",
-      "actors": "Г. Эрдэнэтогтох, Я. Оюунцэцэг, Г. Доржсамбуу, Н. Цэвээнравдан, Ж. Занабазар",
-      "img_link": "https://kinosan.mn/uploads/movie/a650749afd6c926889967e8215b68e1942e7284c.jpg",
-      "genre": "Comedy, Romance",
-      "year": 1980,
-      "plot": "Сумын төвийнхний жирийн амьдрал, хөдөө орон нутагт соёл, олон түмний ажил хэрхэн явагдаж байгаа тухай өгүүлэхдээ эх орныхоо үнэт баялгийг хайрлан хамгаалах, хүн арддаа тустай үйл бүтээх зорилготой залуусын зарчимч, шударга, хөдөлмөрч чанар, хөдөөгийн хүмүүсийн сайхан сэтгэл, хүнлэг ёс суртахууны түвшин зэргийг сургуулийн захирал Хашхүү, холбоочин бүсгүй Номин, тракторчин Арслангийн дүрээр дамжуулан харуулжээ.",
-      "rating": "9.1/10",
+      "name": "Titanic",
+      "actors": "Leonardo DiCaprio, Kate Winslet, Billy Zane",
+      "img_link": "https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg",
+      "genre": "Drama, Romance",
+      "year": 1997,
+      "plot": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+      "rating": "7.9/10",
       "favorite": true,
-      "id": 68
+      "id": 39
     },
     {
-      "name": "Sinister",
-      "actors": "Ethan Hawke, Juliet Rylance, James Ransone",
-      "img_link": "https://m.media-amazon.com/images/M/MV5BMjI5MTg1Njg0Ml5BMl5BanBnXkFtZTcwNzg2Mjc4Nw@@._V1_SX300.jpg",
-      "genre": "Horror, Mystery, Thriller",
-      "year": 2012,
-      "plot": "Washed-up true crime writer Ellison Oswalt finds a box of super 8 home movies in his new home, revealing that the murder he is currently researching is the work of a serial killer whose legacy dates back to the 1960s.",
-      "rating": "6.8/10",
+      "name": "Avatar",
+      "actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver",
+      "img_link": "https://m.media-amazon.com/images/M/MV5BNjA3NGExZDktNDlhZC00NjYyLTgwNmUtZWUzMDYwMTZjZWUyXkEyXkFqcGdeQXVyMTU1MDM3NDk0._V1_SX300.jpg",
+      "genre": "Action, Adventure, Fantasy",
+      "year": 2009,
+      "plot": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+      "rating": "7.8/10",
+      "favorite": true,
+      "id": 40
+    },
+    {
+      "name": "Tom and Jerry",
+      "actors": "N/A",
+      "img_link": "https://m.media-amazon.com/images/M/MV5BMjA3NzUwNjQwOF5BMl5BanBnXkFtZTcwMTcwNTYyMQ@@._V1_SX300.jpg",
+      "genre": "Animation, Comedy, Family",
+      "year": 1965,
+      "plot": "A weekly Saturday (later Sunday) Morning repackaged compilation with new wraparounds featuring two Tom and Jerry cartoons sandwiching other MGM animated theatrical shorts.",
+      "rating": "8.7/10",
       "favorite": false,
-      "id": 70
+      "id": 41
     }
   ]
 }
