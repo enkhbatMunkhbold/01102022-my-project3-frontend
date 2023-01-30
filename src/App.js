@@ -3,6 +3,7 @@ import Navbar from "./components/navigation/Navbar";
 import Home from "./components/static/Home";
 import NewMovie from "./components/static/NewMovie";
 import MovieList from "./components/static/MovieList";
+import Review from './components/addition/Review';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MoviesContext } from "./components/context/movies";
 
@@ -57,6 +58,12 @@ const App = () => {
             <NewMovie/>
           } 
         />
+        <Route
+          path="/movies/:id/review"
+          element={
+            <Review />
+          }
+         />
       </Routes>      
     </Router>
   );

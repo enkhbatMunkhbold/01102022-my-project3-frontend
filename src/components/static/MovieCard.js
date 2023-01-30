@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import Button from '@mui/material/Button'
+import { Link } from "react-router-dom";
 import MovieDetails from './MovieDetails';
 
 const useStyles = makeStyles(() => ({
@@ -71,9 +73,8 @@ const MovieCard = ({ movie, handleUpdate, handleRemoveMovie }) => {
           onClick={handleClick}>
           <FavoriteIcon/>
         </IconButton>
-        <div>
-          <MovieDetails movie={movie}/>
-        </div>          
+        <MovieDetails movie={movie}/>
+        <Button component={ Link } to={`/movies/${id}/review`}>REVIEW</Button> 
         <IconButton
           aria-label='delete'
           onClick={handleDelete}
