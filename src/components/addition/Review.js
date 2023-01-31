@@ -1,7 +1,8 @@
-import React, { useContext } from 'react'
+import React, { Fragment, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { MoviesContext } from '../context/movies'
 import Rating from './Rating'
+// import UserReview from './UserReview'
 
 const Review = () => {
 
@@ -12,7 +13,11 @@ const Review = () => {
   
   
   return (
-    < Rating movie={selected}/>
+    <Fragment>
+      < Rating movie={selected}/>
+      {/* <UserReview /> */}
+    </Fragment>
+   
   )
 }
 
