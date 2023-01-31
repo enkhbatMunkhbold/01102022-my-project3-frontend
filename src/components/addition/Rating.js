@@ -26,7 +26,7 @@ import UserReview from './UserReview';
 
 const Rating = ({ movie }) => {
   // const classes = useStyles();
-  const paperStyle={padding: '0px 0px 30px', width: 700, margin: "30px auto", height: 750, backgroundColor: "#FEFBE7"}
+  const paperStyle={padding: '0px 0px 30px', width: 700, margin: "30px auto", height: 780, backgroundColor: "#FEFBE7"}
   
   return (
     <div>

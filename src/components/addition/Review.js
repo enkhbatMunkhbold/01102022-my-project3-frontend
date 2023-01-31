@@ -15,7 +15,6 @@ const Review = () => {
   return (
     <Fragment>
       < Rating movie={selected}/>
-      {/* <UserReview /> */}
     </Fragment>
    
   )
