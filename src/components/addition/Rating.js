@@ -1,8 +1,6 @@
 import React from 'react'
 import { Grid, Paper, AppBar, Toolbar } from '@material-ui/core';
-import { Box } from '@mui/system'
-// import CardHeader from '@mui/material/CardHeader';
-// import { makeStyles } from '@material-ui/core/styles';
+import { Box } from '@mui/system';
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import { Typography } from '@mui/material';
 import UserReview from './UserReview';
@@ -32,17 +30,6 @@ const Rating = ({ movie }) => {
     <div>
       <Grid>
         <Paper elevation={20} style={paperStyle}>
-          {/* <CardHeader 
-            className={classes.header} 
-            title={<h3 className={classes.text}>
-              Review to {movie.name}
-            </h3>}/>
-          <Box p={3}>
-            <Grid></Grid>
-            <Grid></Grid>
-            <Grid></Grid>
-            <Divider/>
-          </Box> */}
           <AppBar position='static'>
             <Toolbar>
               <Box mr={2}>

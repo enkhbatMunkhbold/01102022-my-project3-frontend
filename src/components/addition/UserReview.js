@@ -3,6 +3,8 @@ import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { Container, FormControl, Grid, List, ListItem, TextField } from '@material-ui/core';
 import { MovieReviewDto } from '../MovieReviewDto';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -14,6 +16,20 @@ const useStyles = makeStyles((theme) => ({
   },
   textField: {
     margin: 10
+  },
+  listStyle: {
+    height: '30rem',
+    overflow: 'auto'
+  },
+  containerStyle: {
+    height: '14rem'
+  }, 
+  reveiwField: {
+    height: '32rem'
+  },
+  buttonStyle: {
+    size: 'large',
+    margin: theme.spacing(5)
   }
 }));
 
@@ -40,15 +56,28 @@ const UserReview = () => {
     </ListItem>
   )
 
+  const handleUserChange = (e) => {
+    setUser(e.target.value)
+  }
+
+  const handleReviewChange = (e) => {
+    setReview(e.target.value)
+  }
+
+  const handleClick = (e) => {
+    console.log('User:', user)
+    console.log('Review:', review)
+  }
+
   return (
     <Fragment>
-      <Grid container direction={'column'} spacing={6} alignItems='center'>
-        <Grid xs={12} style={{height: '32rem'}} item>
-          <List style={{height: '30rem', overflow: 'auto'}}>
+      <Grid container direction={'column'} spacing={6}>
+        <Grid fullWidth className={classes.reveiwField} item>
+          <List className={classes.listStyle}>
             {listMovieReviews}
           </List>
         </Grid>
-        <Container style={{height: '14rem'}}>
+        <Container className={classes.containerStyle}>
           <Grid container >
             <FormControl fullWidth className={classes.formControl}>
               <TextField className={classes.textField}
@@ -56,20 +85,28 @@ const UserReview = () => {
                 label='User'
                 placeholder='Insert user name...'
                 variant='standard'
+                onChange={handleUserChange}
               />
               <TextField className={classes.textField}
                 value={review}
                 label='Review'
                 placeholder='Type your review...'
                 variant='outlined'
-              />        
+                onChange={handleReviewChange}
+              />  
+              <Grid>
+                <Button fullWidth 
+                  variant='contained' 
+                  label='Send'
+                  endIcon={<SendIcon/>}
+                  className={classes.buttonStyle}
+                  onClick={handleClick}
+                >
+                  Send
+                </Button>
+              </Grid>      
             </FormControl>
-          </Grid>
-          {/* <Grid item xs={12} md={6} sx={{m: 5}}>
-            <FormControl fullWidth>
-                          
-            </FormControl>                
-          </Grid> */}
+          </Grid>          
         </Container>
       </Grid>
     </Fragment>
