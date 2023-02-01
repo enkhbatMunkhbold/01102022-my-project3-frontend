@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
-import NewComponent from './NewComponent';
+// import NewComponent from './NewComponent';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -148,7 +148,7 @@ const Home = () => {
       </form>       */}
 
       {/**************************************************************************/}
-      <NewComponent/>
+      {/* <NewComponent/> */}
     </Box>
   )
 }

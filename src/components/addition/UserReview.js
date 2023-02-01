@@ -2,7 +2,6 @@ import React, { Fragment, useState } from 'react'
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { Container, FormControl, Grid, List, ListItem, TextField } from '@material-ui/core';
-import { MovieReviewDto } from '../MovieReviewDto';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(3),
+    width: '100%'
   },
   textField: {
     margin: 10
@@ -28,73 +28,69 @@ const useStyles = makeStyles((theme) => ({
     height: '32rem'
   },
   buttonStyle: {
-    size: 'large',
+    size: 'large',    
     margin: theme.spacing(5)
   }
 }));
 
 const UserReview = () => {
 
-  const [movieRevies, setMovieReviews] = useState([
-    new MovieReviewDto('John', 'Hi, everyone! This is awesome movie!')
-  ])
+  const [movieRevies, setMovieReviews] = useState([])
 
   const classes = useStyles();
-  const [user, setUser] = useState('')
-  const [review, setReview] = useState('')
+  const [userReview, setUserReview] = useState({
+    name: '',
+    review: ''
+  })
 
-  const listMovieReviews = movieRevies.map((movieReviewDto, index) => 
+  const listMovieReviews = movieRevies.map((user, index) => 
     <ListItem key={index}>
       <Box>
-        <Typography variant='h6' gutterBottom>
-          {movieReviewDto.user}
+        <Typography sx={{fontWeight: 'bold'}}>
+          {user.name}
         </Typography>
         <Grid item>
-          {movieReviewDto.review}
+          {user.review}
         </Grid>  
       </Box>      
     </ListItem>
   )
 
-  const handleUserChange = (e) => {
-    setUser(e.target.value)
+  const handleChange = (e) => {
+    setUserReview({...userReview, [e.target.name]: e.target.value})
   }
 
-  const handleReviewChange = (e) => {
-    setReview(e.target.value)
-  }
-
-  const handleSubmit = () => {    
-    if(user && review) {
-      console.log('User:', user)
-      console.log("Review:", review)
-    }
+  const handleSubmit = (e) => {   
+    e.preventDefault()
+    setMovieReviews([...movieRevies, userReview])
+    console.log(userReview)
+    console.log(movieRevies)
   }
 
   return (
     <Fragment>
       <Grid container direction={'column'} spacing={6}>
-        <Grid fullWidth className={classes.reveiwField} item>
+        <Grid className={classes.reveiwField} item>
           <List className={classes.listStyle}>
             {listMovieReviews}
           </List>
         </Grid>
         <Container className={classes.containerStyle}>
           <Grid container >
-            <FormControl fullWidth className={classes.formControl} onSubmit={handleSubmit}>
+            <FormControl className={classes.formControl} onSubmit={handleSubmit}>
               <TextField className={classes.textField}
-                value={user}
                 label='User'
                 placeholder='Insert user name...'
                 variant='standard'
-                onChange={handleUserChange}
+                onChange={handleChange}
+                name='name'
               />
               <TextField className={classes.textField}
-                value={review}
                 label='Review'
                 placeholder='Type your review...'
                 variant='outlined'
-                onChange={handleReviewChange}
+                onChange={handleChange}
+                name='review'
               />  
               <Grid>
                 <Button fullWidth 
