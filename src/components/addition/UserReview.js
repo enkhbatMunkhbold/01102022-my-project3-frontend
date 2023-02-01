@@ -64,9 +64,11 @@ const UserReview = () => {
     setReview(e.target.value)
   }
 
-  const handleClick = (e) => {
-    console.log('User:', user)
-    console.log('Review:', review)
+  const handleSubmit = () => {    
+    if(user && review) {
+      console.log('User:', user)
+      console.log("Review:", review)
+    }
   }
 
   return (
@@ -79,7 +81,7 @@ const UserReview = () => {
         </Grid>
         <Container className={classes.containerStyle}>
           <Grid container >
-            <FormControl fullWidth className={classes.formControl}>
+            <FormControl fullWidth className={classes.formControl} onSubmit={handleSubmit}>
               <TextField className={classes.textField}
                 value={user}
                 label='User'
@@ -96,11 +98,12 @@ const UserReview = () => {
               />  
               <Grid>
                 <Button fullWidth 
+                  type='submit'
                   variant='contained' 
                   label='Send'
                   endIcon={<SendIcon/>}
                   className={classes.buttonStyle}
-                  onClick={handleClick}
+                  onClick={handleSubmit}
                 >
                   Send
                 </Button>
