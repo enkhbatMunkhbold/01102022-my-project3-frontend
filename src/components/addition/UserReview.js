@@ -5,6 +5,7 @@ import { Container, FormControl, Grid, List, ListItem, TextField } from '@materi
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { makeStyles } from '@material-ui/core/styles';
+// import { MoviesContext } from '../context/movies';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,17 +34,20 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const UserReview = () => {
-
-  const [movieRevies, setMovieReviews] = useState([])  
-  const classes = useStyles();
+const UserReview = ({ movie, reviews, setReviews  }) => { 
+  
+  // const { movies } = useContext(MoviesContext)
+  const [fields, setFields] = useState([])
   const [userReview, setUserReview] = useState({
     name: '',
     review: ''
   })
-  const [fields, setFields] = useState([])
+  
+  const classes = useStyles();
 
-  const listMovieReviews = movieRevies.map((user, index) => 
+  console.log("Movie Reviews:", reviews)
+
+  const listMovieReviews = movie.reviews.map((user, index) => 
     <ListItem key={index}>
       <Box>
         <Typography sx={{fontWeight: 'bold'}}>
@@ -62,8 +66,19 @@ const UserReview = () => {
   }
 
   const handleSubmit = (e) => {   
-    e.preventDefault()
-    setMovieReviews([...movieRevies, userReview])
+    e.preventDefault()  
+
+    fetch( `http://localhost:3001/movies/${movie.id}/reviews`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }, 
+      body: JSON.stringify(userReview)
+    }).then(res => res.json())
+      .then(postedReview => {
+        setReviews([...reviews, postedReview])
+      })
+    
     fields.forEach(f => f.value = '')
   }
 

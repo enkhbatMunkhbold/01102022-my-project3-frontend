@@ -61,7 +61,8 @@ const Search = () => {
       year: Number(m.Year),
       plot: m.Plot,
       rating: m.Ratings[0].Value,
-      favorite: false
+      favorite: false,
+      reviews: []
     }
 
     fetch(`http://localhost:3001/movies`, {

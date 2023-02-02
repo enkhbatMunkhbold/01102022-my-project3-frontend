@@ -5,25 +5,8 @@ import RateReviewIcon from '@mui/icons-material/RateReview';
 import { Typography } from '@mui/material';
 import UserReview from './UserReview';
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     display: 'flex'
-//   },
-//   formControl: {
-//     margin: theme.spacing(3),
-//   },
-  // header: {
-  // },
-  // text: {
-  //   color: "#fff"
-  // },
-  // box: {
-  //   height: '10rem'
-  // }
-// }));
-
-const Rating = ({ movie }) => {
-  // const classes = useStyles();
+const Rating = ({ movie, reviews, setReviews }) => {
+  
   const paperStyle={padding: '0px 0px 30px', width: 700, margin: "30px auto", height: 780, backgroundColor: "#FEFBE7"}
   
   return (
@@ -36,11 +19,15 @@ const Rating = ({ movie }) => {
                 <RateReviewIcon fontSize={'large'}/>
               </Box>
               <Typography variant='h6'>
-                Review to "{movie.name}"
+                Reviews to "{movie.name}"
               </Typography>
             </Toolbar>
           </AppBar>
-          <UserReview/>
+          <UserReview 
+            movie={movie}
+            reviews={reviews} 
+            setReviews={setReviews}
+          />
         </Paper>
       </Grid>
     </div>

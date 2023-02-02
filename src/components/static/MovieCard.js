@@ -26,8 +26,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const MovieCard = ({ movie, handleUpdate, handleRemoveMovie }) => {
-  const { id, name, img_link, genre, favorite } = movie
-  const classes = useStyles();
+  const { id, name, img_link, genre, favorite } = movie  
+  const classes = useStyles();  
  
   const handleClick = () => {
     fetch(`http://localhost:3001/movies/${id}`, {
@@ -74,7 +74,7 @@ const MovieCard = ({ movie, handleUpdate, handleRemoveMovie }) => {
           <FavoriteIcon/>
         </IconButton>
         <MovieDetails movie={movie}/>
-        <Button component={ Link } to={`/movies/${id}/review`}>REVIEW</Button> 
+        <Button component={ Link } to={`/movies/${id}/reviews`}>REVIEW</Button> 
         <IconButton
           aria-label='delete'
           onClick={handleDelete}

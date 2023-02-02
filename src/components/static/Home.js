@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useState } from 'react';
 import { makeStyles, createTheme } from '@material-ui/core/styles';
 import clapperBoard from '../images/clapperboard.png';
 import camera from '../images/video-camera.png';

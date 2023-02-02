@@ -9,6 +9,7 @@
       "plot": "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son.",
       "rating": "9.2/10",
       "favorite": true,
+      "reviews": [],
       "id": 1
     },
     {
@@ -20,6 +21,7 @@
       "plot": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
       "rating": "9.0/10",
       "favorite": false,
+      "reviews": [],
       "id": 2
     },
     {
@@ -31,6 +33,7 @@
       "plot": "The manipulative daughter of a Georgia plantation owner conducts a turbulent romance with a roguish profiteer during the American Civil War and Reconstruction periods.",
       "rating": "8.2/10",
       "favorite": true,
+      "reviews": [],
       "id": 3
     },
     {
@@ -42,6 +45,7 @@
       "plot": "A journalist must investigate a mysterious videotape which seems to cause the death of anyone one week to the day after they view it.",
       "rating": "7.1/10",
       "favorite": true,
+      "reviews": [],
       "id": 9
     },
     {
@@ -53,6 +57,7 @@
       "plot": "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.",
       "rating": "8.2/10",
       "favorite": true,
+      "reviews": [],
       "id": 16
     },
     {
@@ -64,6 +69,7 @@
       "plot": "To foil a terrorist plot, an FBI agent undergoes facial transplant surgery to assume the identity of the criminal mastermind who murdered his only son, but the criminal wakes up prematurely and seeks revenge.",
       "rating": "7.3/10",
       "favorite": false,
+      "reviews": [],
       "id": 18
     },
     {
@@ -75,6 +81,7 @@
       "plot": "The story of 160 elite U.S. soldiers who dropped into Mogadishu in October 1993 to capture two top lieutenants of a renegade warlord, but found themselves in a desperate battle with a large force of heavily-armed Somalis.",
       "rating": "7.7/10",
       "favorite": false,
+      "reviews": [],
       "id": 30
     },
     {
@@ -86,6 +93,7 @@
       "plot": "A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.",
       "rating": "8.8/10",
       "favorite": false,
+      "reviews": [],
       "id": 31
     },
     {
@@ -97,6 +105,7 @@
       "plot": "A comprehensive look at the Bush Administration's conduct of the Iraq war and its occupation of the country.",
       "rating": "8.2/10",
       "favorite": false,
+      "reviews": [],
       "id": 36
     },
     {
@@ -108,6 +117,7 @@
       "plot": "A newly recruited night security guard at the Museum of Natural History discovers that an ancient curse causes the animals and exhibits on display to come to life and wreak havoc.",
       "rating": "6.4/10",
       "favorite": false,
+      "reviews": [],
       "id": 43
     },
     {
@@ -119,6 +129,7 @@
       "plot": "IMF agent Ethan Hunt comes into conflict with a dangerous and sadistic arms dealer who threatens his life and his fiancée in response.",
       "rating": "6.9/10",
       "favorite": false,
+      "reviews": [],
       "id": 50
     },
     {
@@ -130,6 +141,7 @@
       "plot": "An adaptation of Homer's great epic, the film follows the assault on Troy by the united Greek forces and chronicles the fates of the men involved.",
       "rating": "7.3/10",
       "favorite": false,
+      "reviews": [],
       "id": 62
     },
     {
@@ -141,6 +153,7 @@
       "plot": "1921 оны Ардын хувьсгалын удирдагч, бүх цэргийн жанжин Д.Сүхбаатар тэргүүтэй ардын намынхан гадаад дотоодын дарлагчдыг устган эрх чөлөөт амьдралын өглөөг эх орондоо авчирч буйг харуулсан түүхэн уран сайхны кино.",
       "rating": "8.3/10",
       "favorite": false,
+      "reviews": [],
       "id": 67
     },
     {
@@ -152,6 +165,7 @@
       "plot": "Сумын төвийнхний жирийн амьдрал, хөдөө орон нутагт соёл, олон түмний ажил хэрхэн явагдаж байгаа тухай өгүүлэхдээ эх орныхоо үнэт баялгийг хайрлан хамгаалах, хүн арддаа тустай үйл бүтээх зорилготой залуусын зарчимч, шударга, хөдөлмөрч чанар, хөдөөгийн хүмүүсийн сайхан сэтгэл, хүнлэг ёс суртахууны түвшин зэргийг сургуулийн захирал Хашхүү, холбоочин бүсгүй Номин, тракторчин Арслангийн дүрээр дамжуулан харуулжээ.",
       "rating": "9.1/10",
       "favorite": true,
+      "reviews": [],
       "id": 68
     },
     {
@@ -163,6 +177,7 @@
       "plot": "Washed-up true crime writer Ellison Oswalt finds a box of super 8 home movies in his new home, revealing that the murder he is currently researching is the work of a serial killer whose legacy dates back to the 1960s.",
       "rating": "6.8/10",
       "favorite": false,
+      "reviews": [],
       "id": 70
     }
   ]
