@@ -35,13 +35,13 @@ const useStyles = makeStyles((theme) => ({
 
 const UserReview = () => {
 
-  const [movieRevies, setMovieReviews] = useState([])
-
+  const [movieRevies, setMovieReviews] = useState([])  
   const classes = useStyles();
   const [userReview, setUserReview] = useState({
     name: '',
     review: ''
   })
+  const [fields, setFields] = useState([])
 
   const listMovieReviews = movieRevies.map((user, index) => 
     <ListItem key={index}>
@@ -57,14 +57,14 @@ const UserReview = () => {
   )
 
   const handleChange = (e) => {
-    setUserReview({...userReview, [e.target.name]: e.target.value})
+    setUserReview({...userReview, [e.target.name]: e.target.value})    
+    setFields([...fields, e.target])
   }
 
   const handleSubmit = (e) => {   
     e.preventDefault()
     setMovieReviews([...movieRevies, userReview])
-    console.log(userReview)
-    console.log(movieRevies)
+    fields.forEach(f => f.value = '')
   }
 
   return (
