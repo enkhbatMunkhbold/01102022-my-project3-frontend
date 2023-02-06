@@ -30,7 +30,7 @@ const MovieCard = ({ movie, handleUpdate, handleRemoveMovie }) => {
   const classes = useStyles();  
  
   const handleClick = () => {
-    fetch(`http://localhost:3001/movies/${id}`, {
+    fetch(`http://localhost:9292/movies/${id}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ const MovieCard = ({ movie, handleUpdate, handleRemoveMovie }) => {
   }
 
   const handleDelete = () => {
-    fetch(`http://localhost:3001/movies/${id}`, {
+    fetch(`http://localhost:9292/movies/${id}`, {
       method: 'DELETE'
     }).then(res => res.json())
       .then(data => console.log("Movie is successfully deleted!", data)) 

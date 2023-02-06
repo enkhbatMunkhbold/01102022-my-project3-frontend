@@ -65,7 +65,7 @@ const Search = () => {
       reviews: []
     }
 
-    fetch(`http://localhost:3001/movies`, {
+    fetch(`http://localhost:9292/movies`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'  

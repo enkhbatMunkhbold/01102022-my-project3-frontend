@@ -9,12 +9,18 @@ const Reviews = () => {
   const { movies } = useContext(MoviesContext)
   const selected = movies.filter(movie => movie.id === parseInt(id))[0]
 
-  const [reviews, setReviews] = useState(selected.reviews)   
- 
+  const [reviews, setReviews] = useState(selected.reviews) 
+
   useEffect(() => {
     fetch(`http://localhost:3001/movies/${id}/reviews`)
     .then(res => res.json())
-    .then(data => setReviews([...reviews, data]))
+    .then(data => {
+      // if(data.length > 0) {
+      //   setReviews([...reviews, data])
+      // }    
+      // setReviews([...reviews. data.reviews])  
+      console.log('Fetched DATA:', data)
+    })
   }, [setReviews])
   
   return (
