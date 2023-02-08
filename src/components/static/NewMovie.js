@@ -28,8 +28,7 @@ const NewMovie = () => {
     year: 0,
     plot: '',
     rating: '',
-    favorite: '',
-    reviews: []
+    favorite: false
   })
 
   const [radioValue, setRadioValue] = useState('non-favorite')
@@ -90,8 +89,7 @@ const NewMovie = () => {
         year: Number(formData.year),
         plot: formData.plot,
         rating: formData.rating,
-        favorite: (radioValue === 'non-favorite') ? false : true,
-        reviews: []
+        favorite: (radioValue === 'non-favorite') ? false : true
       }
   
       fetch('http://localhost:9292/movies', {

@@ -47,7 +47,20 @@ const UserReview = ({ movie, reviews, setReviews  }) => {
 
   console.log("Movie Reviews:", reviews)
 
-  const listMovieReviews = movie.reviews.map((user, index) => 
+  const renderReviews = (user, index) => {
+    if(reviews.length < 1) {
+      <ListItem key={index}>
+        <Box>
+          <Typography sx={{fontWeight: 'bold'}}>
+            {user.name}
+          </Typography>
+          <Grid item>
+            {user.review}
+          </Grid>  
+        </Box>      
+      </ListItem>
+    } else {
+      reviews.map(() => 
     <ListItem key={index}>
       <Box>
         <Typography sx={{fontWeight: 'bold'}}>
@@ -58,7 +71,21 @@ const UserReview = ({ movie, reviews, setReviews  }) => {
         </Grid>  
       </Box>      
     </ListItem>
-  )
+    )}
+  }
+
+  // const listMovieReviews = reviews.map((user, index) => 
+  //   <ListItem key={index}>
+  //     <Box>
+  //       <Typography sx={{fontWeight: 'bold'}}>
+  //         {user.name}
+  //       </Typography>
+  //       <Grid item>
+  //         {user.review}
+  //       </Grid>  
+  //     </Box>      
+  //   </ListItem>
+  // )
 
   const handleChange = (e) => {
     setUserReview({...userReview, [e.target.name]: e.target.value})    
@@ -87,7 +114,7 @@ const UserReview = ({ movie, reviews, setReviews  }) => {
       <Grid container direction={'column'} spacing={6}>
         <Grid className={classes.reveiwField} item>
           <List className={classes.listStyle}>
-            {listMovieReviews}
+            {renderReviews}
           </List>
         </Grid>
         <Container className={classes.containerStyle}>

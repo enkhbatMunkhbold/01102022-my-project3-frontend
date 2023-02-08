@@ -8,7 +8,7 @@ import UserReview from './UserReview';
 const Rating = ({ movie, reviews, setReviews }) => {
   
   const paperStyle={padding: '0px 0px 30px', width: 700, margin: "30px auto", height: 780, backgroundColor: "#FEFBE7"}
-  
+  // console.log("Movie:", movie)
   return (
     <div>
       <Grid>

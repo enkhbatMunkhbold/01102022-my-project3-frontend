@@ -30,7 +30,7 @@ const MovieCard = ({ movie, handleUpdate, handleRemoveMovie }) => {
   const classes = useStyles();  
  
   const handleClick = () => {
-    fetch(`http://localhost:9292/movies/${id}`, {
+    fetch(`http://localhost:3001/9292/${id}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json'

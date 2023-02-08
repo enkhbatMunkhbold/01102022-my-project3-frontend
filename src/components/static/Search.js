@@ -52,7 +52,7 @@ const Search = () => {
   const [searchMovie, setSearchMovie] = useState(null)
   const api_key = process.env.REACT_APP_KEY
 
-  const handleAddMovie = (m) => {
+  const handleAddMovie = (m) => {    
     const movieData = {
       name: m.Title,
       actors: m.Actors,
@@ -61,8 +61,7 @@ const Search = () => {
       year: Number(m.Year),
       plot: m.Plot,
       rating: m.Ratings[0].Value,
-      favorite: false,
-      reviews: []
+      favorite: false
     }
 
     fetch(`http://localhost:9292/movies`, {
@@ -72,7 +71,9 @@ const Search = () => {
       },
       body: JSON.stringify(movieData)
     }).then( res => res.json())
-      .then(foundMovie => setMovies([...movies, foundMovie]))
+      .then(foundMovie => {
+        setMovies([...movies, foundMovie])
+      })
   }  
 
   const handleSubmit = (e) => {
@@ -91,7 +92,7 @@ const Search = () => {
       .then(res => res.json())
       .then(movieData => {
         handleAddMovie(movieData)
-        alert("A movie was successfully added to the list!")
+        // alert("A movie was successfully added to the list!")
       })
       .catch(() => {
         alert("A movie you're searching wasn't found!")   
