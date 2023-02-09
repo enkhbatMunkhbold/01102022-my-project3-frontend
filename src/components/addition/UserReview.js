@@ -5,7 +5,6 @@ import { Container, FormControl, Grid, List, ListItem, TextField } from '@materi
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { makeStyles } from '@material-ui/core/styles';
-// import { MoviesContext } from '../context/movies';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
 
 const UserReview = ({ movie, reviews, setReviews  }) => { 
   
-  // const { movies } = useContext(MoviesContext)
   const [fields, setFields] = useState([])
   const [userReview, setUserReview] = useState({
     name: '',
@@ -45,22 +43,7 @@ const UserReview = ({ movie, reviews, setReviews  }) => {
   
   const classes = useStyles();
 
-  console.log("Movie Reviews:", reviews)
-
-  const renderReviews = (user, index) => {
-    if(reviews.length < 1) {
-      <ListItem key={index}>
-        <Box>
-          <Typography sx={{fontWeight: 'bold'}}>
-            {user.name}
-          </Typography>
-          <Grid item>
-            {user.review}
-          </Grid>  
-        </Box>      
-      </ListItem>
-    } else {
-      reviews.map(() => 
+  const listMovieReviews = reviews.map((user, index) => 
     <ListItem key={index}>
       <Box>
         <Typography sx={{fontWeight: 'bold'}}>
@@ -71,21 +54,7 @@ const UserReview = ({ movie, reviews, setReviews  }) => {
         </Grid>  
       </Box>      
     </ListItem>
-    )}
-  }
-
-  // const listMovieReviews = reviews.map((user, index) => 
-  //   <ListItem key={index}>
-  //     <Box>
-  //       <Typography sx={{fontWeight: 'bold'}}>
-  //         {user.name}
-  //       </Typography>
-  //       <Grid item>
-  //         {user.review}
-  //       </Grid>  
-  //     </Box>      
-  //   </ListItem>
-  // )
+  )
 
   const handleChange = (e) => {
     setUserReview({...userReview, [e.target.name]: e.target.value})    
@@ -94,6 +63,8 @@ const UserReview = ({ movie, reviews, setReviews  }) => {
 
   const handleSubmit = (e) => {   
     e.preventDefault()  
+    console.log('Movie ID:', movie.id)
+    console.log('User review:', userReview)
 
     fetch( `http://localhost:9292/movies/${movie.id}/reviews`, {
       method: 'POST',
@@ -105,16 +76,18 @@ const UserReview = ({ movie, reviews, setReviews  }) => {
       .then(postedReview => {
         setReviews([...reviews, postedReview])
       })
-    
+    setReviews([...reviews, userReview])
     fields.forEach(f => f.value = '')
   }
+  
+  console.log("Reviews:", reviews)
 
   return (
     <Fragment>
       <Grid container direction={'column'} spacing={6}>
         <Grid className={classes.reveiwField} item>
           <List className={classes.listStyle}>
-            {renderReviews}
+            {listMovieReviews}
           </List>
         </Grid>
         <Container className={classes.containerStyle}>
