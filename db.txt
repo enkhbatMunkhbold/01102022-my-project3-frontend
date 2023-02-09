@@ -10,7 +10,7 @@
       "rating": "9.2/10",
       "favorite": true,
       "id": 1
-    },
+    }, 
     {
       "name": "Schindler's List",
       "actors": "Liam Neeson, Ralph Fiennes, Ben Kingsley",
