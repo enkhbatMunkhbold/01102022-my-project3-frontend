@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { Fragment, useContext } from 'react'
+import { useParams } from 'react-router-dom';
+import { MoviesContext } from '../context/movies'
 import { Grid, Paper, AppBar, Toolbar } from '@material-ui/core';
 import { Box } from '@mui/system';
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import { Typography } from '@mui/material';
-import UserReview from './UserReview';
+import Reviews from './Reviews';
 
-const Rating = ({ movie, reviews, setReviews }) => {
+const ReviewsContainer = () => {
+
+  const { id } = useParams()
+  const { movies } = useContext(MoviesContext)
+  const selected = movies.filter(movie => movie.id === parseInt(id))[0]
   
   const paperStyle={padding: '0px 0px 30px', width: 700, margin: "30px auto", height: 780, backgroundColor: "#FEFBE7"}
-  // console.log("Movie:", movie)
+
   return (
-    <div>
+    <Fragment>
       <Grid>
         <Paper elevation={20} style={paperStyle}>
           <AppBar position='static'>
@@ -19,19 +25,15 @@ const Rating = ({ movie, reviews, setReviews }) => {
                 <RateReviewIcon fontSize={'large'}/>
               </Box>
               <Typography variant='h6'>
-                Reviews to "{movie.name}"
+                Reviews to "{selected.name}"
               </Typography>
             </Toolbar>
           </AppBar>
-          <UserReview 
-            movie={movie}
-            reviews={reviews} 
-            setReviews={setReviews}
-          />
+          <Reviews movie={selected}/>
         </Paper>
       </Grid>
-    </div>
+    </Fragment>
   )
 }
 
-export default Rating
+export default ReviewsContainer

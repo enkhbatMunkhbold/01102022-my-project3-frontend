@@ -3,7 +3,7 @@ import Navbar from "./components/navigation/Navbar";
 import Home from "./components/static/Home";
 import NewMovie from "./components/static/NewMovie";
 import MovieList from "./components/static/MovieList";
-import Reviews from './components/addition/Reviews';
+import ReviewsContainer from './components/addition/ReviewsContainer';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MoviesContext } from "./components/context/movies";
 
@@ -61,7 +61,7 @@ const App = () => {
         <Route
           path="/movies/:id/reviews"
           element={
-            <Reviews />
+            <ReviewsContainer />
           }
          />
       </Routes>      
