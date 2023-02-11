@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from 'react'
+import React, { Fragment, useState, useContext, useEffect } from 'react'
 import { MoviesContext } from '../context/movies'
 import { Container, FormControl, Grid, List, ListItem, TextField } from '@material-ui/core';
 import Button from '@mui/material/Button';
@@ -37,8 +37,9 @@ const useStyles = makeStyles((theme) => ({
 const Reviews = ({ movie }) => { 
   
   const { movies, setMovies } = useContext(MoviesContext)
-  const { reviews } = movie
+  let { id, reviews } = movie
   const [fields, setFields] = useState([])
+  const [thisMovieReviews, setThisMovieReviews] = useState(reviews)
   const [userReview, setUserReview] = useState({
     name: '',
     review: ''
@@ -46,7 +47,17 @@ const Reviews = ({ movie }) => {
   
   const classes = useStyles();
 
-  const listMovieReviews = reviews.map((user, index) => 
+  useEffect(() => {
+    fetch(`http://localhost:9292/movies/${id}/reviews`)
+    .then(res => res.json())
+    .then(data => {
+      // const reviewData = data.filter(m => m.movie_id === id)
+      // setThisMovieReviews(reviewData)
+      console.log('Fetched data:', data)
+    })
+  }, [])
+
+  const listMovieReviews = thisMovieReviews.map((user, index) => 
     <ListItem key={index}>
       <Box>
         <Typography sx={{fontWeight: 'bold'}}>
@@ -66,10 +77,10 @@ const Reviews = ({ movie }) => {
 
   const handleSubmit = (e) => {   
     e.preventDefault()  
-    console.log('Movie ID:', movie.id)
+    console.log('Movie ID:', id)
     console.log('User review:', userReview)
 
-    fetch( `http://localhost:9292/movies/${movie.id}/reviews`, {
+    fetch( `http://localhost:9292/movies/${id}/reviews`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -77,15 +88,14 @@ const Reviews = ({ movie }) => {
       body: JSON.stringify(userReview)
     }).then(res => res.json())
       .then(postedReview => {
-        movie.reviews = [...reviews, postedReview]
-        setMovies(...movies, movie)
+        reviews = [...reviews, postedReview]
+        setUserReview([...userReview, postedReview])
+        movies.map(m => m.id === id ? movie : m)
+        setMovies(movies)
       })
-    // [...reviews, userReview]
+    console.log('Reviews:', reviews)
     fields.forEach(f => f.value = '')
   }
-  
-  console.log("Reviews:", reviews)
-
   return (
     <Fragment>
       <Grid container direction={'column'} spacing={6}>
