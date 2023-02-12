@@ -39,10 +39,10 @@ const Reviews = ({ movie }) => {
   const { movies, setMovies } = useContext(MoviesContext)
   let { id, reviews } = movie
   const [fields, setFields] = useState([])
-  const [thisMovieReviews, setThisMovieReviews] = useState(reviews)
+  const [thisMovieReviews, setThisMovieReviews] = useState([])
   const [userReview, setUserReview] = useState({
     name: '',
-    review: ''
+    comment: ''
   })
   
   const classes = useStyles();
@@ -51,13 +51,12 @@ const Reviews = ({ movie }) => {
     fetch(`http://localhost:9292/movies/${id}/reviews`)
     .then(res => res.json())
     .then(data => {
-      // const reviewData = data.filter(m => m.movie_id === id)
-      // setThisMovieReviews(reviewData)
+      const reviewData = data.filter(m => m.movie_id === id)
+      setThisMovieReviews(reviewData)
       console.log(`Fetched ${id} data`, data)
     })
   }, [setThisMovieReviews])
 
-  console.log('This movie reviews:', thisMovieReviews)
   const listMovieReviews = thisMovieReviews.map((user, index) =>     
     <ListItem key={index}>
       <Box>
@@ -65,7 +64,7 @@ const Reviews = ({ movie }) => {
           {user.name}
         </Typography>
         <Grid item>
-          {user.review}
+          {user.comment}
         </Grid>  
       </Box>      
     </ListItem>
@@ -78,7 +77,6 @@ const Reviews = ({ movie }) => {
 
   const handleSubmit = (e) => {   
     e.preventDefault()  
-    console.log('Movie ID:', id)
     console.log('User review:', userReview)
 
     fetch( `http://localhost:9292/movies/${id}/reviews`, {
@@ -88,14 +86,13 @@ const Reviews = ({ movie }) => {
       }, 
       body: JSON.stringify(userReview)
     }).then(res => res.json())
-      .then(postedReview => {
-        console.log("Posted review:", postedReview)
-        reviews = [...reviews, postedReview]
-        setThisMovieReviews([...thisMovieReviews, postedReview])
+      .then(data => {
+        console.log("Posted review:", data)
+        reviews = [...reviews, data]
+        setThisMovieReviews(data)
         movies.map(m => m.id === id ? movie : m)
         setMovies(movies)
       })
-    console.log('This movie reviews after post:', thisMovieReviews)
     fields.forEach(f => f.value = '')
   }
   return (
@@ -118,10 +115,10 @@ const Reviews = ({ movie }) => {
               />
               <TextField className={classes.textField}
                 label='Review'
-                placeholder='Type your review...'
+                placeholder='Type your comment...'
                 variant='outlined'
                 onChange={handleChange}
-                name='review'
+                name='comment'
               />  
               <Grid>
                 <Button fullWidth 
