@@ -53,12 +53,12 @@ const Reviews = ({ movie }) => {
     .then(data => {
       // const reviewData = data.filter(m => m.movie_id === id)
       // setThisMovieReviews(reviewData)
-      console.log('Fetched data:', data)
+      console.log(`Fetched ${id} data`, data)
     })
   }, [setThisMovieReviews])
 
-  // console.log("Movie:", movie)
-  const listMovieReviews = thisMovieReviews.map((user, index) => 
+  console.log('This movie reviews:', thisMovieReviews)
+  const listMovieReviews = thisMovieReviews.map((user, index) =>     
     <ListItem key={index}>
       <Box>
         <Typography sx={{fontWeight: 'bold'}}>
@@ -89,12 +89,13 @@ const Reviews = ({ movie }) => {
       body: JSON.stringify(userReview)
     }).then(res => res.json())
       .then(postedReview => {
+        console.log("Posted review:", postedReview)
         reviews = [...reviews, postedReview]
         setThisMovieReviews([...thisMovieReviews, postedReview])
         movies.map(m => m.id === id ? movie : m)
         setMovies(movies)
       })
-    console.log('Reviews:', thisMovieReviews)
+    console.log('This movie reviews after post:', thisMovieReviews)
     fields.forEach(f => f.value = '')
   }
   return (
