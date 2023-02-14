@@ -5,7 +5,9 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import ClearIcon from '@mui/icons-material/Clear';
+// import EditIcon from '@mui/icons-material/Edit';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,6 +40,7 @@ const Reviews = ({ movie }) => {
   
   const { movies, setMovies } = useContext(MoviesContext)
   let { id, reviews } = movie
+  const [showBtn, setShowBtn] = useState(false)
   const [fields, setFields] = useState([])
   const [thisMovieReviews, setThisMovieReviews] = useState([])
   const [userReview, setUserReview] = useState({
@@ -53,20 +56,36 @@ const Reviews = ({ movie }) => {
     .then(data => {
       const reviewData = data.filter(m => m.movie_id === id)
       setThisMovieReviews(reviewData)
-      console.log(`Fetched ${id} data`, data)
     })
   }, [setThisMovieReviews])
 
+  const handleClick = (e) => {
+    console.log(e.target)
+  }
+
   const listMovieReviews = thisMovieReviews.map((user, index) =>     
     <ListItem key={index}>
-      <Box>
-        <Typography sx={{fontWeight: 'bold'}}>
-          {user.name}
-        </Typography>
-        <Grid item>
-          {user.comment}
-        </Grid>  
-      </Box>      
+      <Grid container onMouseEnter={() => setShowBtn(true)} onMouseLeave={() => setShowBtn(false)}>       
+        <Grid item md={12}>
+          <Typography sx={{fontWeight: 'bold'}}>
+            {user.name}
+          </Typography>
+        </Grid>
+        <Grid item md={11}>
+          {user.comment}         
+        </Grid> 
+        {
+          showBtn ? <div>
+            {/* <Grid item md={1}>
+              <EditIcon/>
+            </Grid>  */}
+            <Grid item md={1}>
+              <ClearIcon onClick={handleClick}/>
+            </Grid> 
+          </div> : null              
+        }
+           
+      </Grid>      
     </ListItem>
   )
 
