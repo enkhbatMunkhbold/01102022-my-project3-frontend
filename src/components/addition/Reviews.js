@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useContext, useEffect } from 'react'
 import { MoviesContext } from '../context/movies'
-import { Container, FormControl, Grid, List, ListItem, TextField } from '@material-ui/core';
+import { Container, FormControl, Grid, List, TextField } from '@material-ui/core';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { makeStyles } from '@material-ui/core/styles';
@@ -33,6 +33,10 @@ const useStyles = makeStyles((theme) => ({
   buttonStyle: {
     size: 'large',    
     margin: theme.spacing(5)
+  },
+  reviewItem: {
+    height: '5rem',
+    padding: "2px 0px 0px 15px"
   }
 }));
 
@@ -40,7 +44,7 @@ const Reviews = ({ movie }) => {
   
   const { movies, setMovies } = useContext(MoviesContext)
   let { id, reviews } = movie
-  const [showBtn, setShowBtn] = useState(false)
+  const [showBtn, setShowBtn] = useState(true)
   const [fields, setFields] = useState([])
   const [thisMovieReviews, setThisMovieReviews] = useState([])
   const [userReview, setUserReview] = useState({
@@ -60,33 +64,41 @@ const Reviews = ({ movie }) => {
   }, [setThisMovieReviews])
 
   const handleClick = (e) => {
-    console.log(e.target)
+    console.log(e.target.parentNode.name)
   }
 
   const listMovieReviews = thisMovieReviews.map((user, index) =>     
-    <ListItem key={index}>
-      <Grid container onMouseEnter={() => setShowBtn(true)} onMouseLeave={() => setShowBtn(false)}>       
-        <Grid item md={12}>
-          <Typography sx={{fontWeight: 'bold'}}>
-            {user.name}
-          </Typography>
-        </Grid>
+    <div key={index} 
+              className={classes.reviewItem}  id={index}            
+              onMouseOver={(e) => {
+                if(Number(e.target.id) === index){
+                  setShowBtn(true) 
+                }                
+                // console.log("Type of e.target.id:", typeof(e.target.id))
+                // console.log("Type of index:", typeof(index))
+              }}
+              onMouseOut={() => {setShowBtn(false)}}>
+      <Grid container> 
         <Grid item md={11}>
-          {user.comment}         
+          <Grid >
+            <Typography sx={{fontWeight: 'bold'}}>
+              {user.name}
+            </Typography>
+          </Grid>
+          <Grid >
+            {user.comment}         
+          </Grid>  
         </Grid> 
         {
-          showBtn ? <div>
-            {/* <Grid item md={1}>
-              <EditIcon/>
-            </Grid>  */}
-            <Grid item md={1}>
+          showBtn ?  (
+            <Grid item md={1} >
               <ClearIcon onClick={handleClick}/>
             </Grid> 
-          </div> : null              
-        }
-           
+           ) : null
+        }         
+                
       </Grid>      
-    </ListItem>
+    </div>
   )
 
   const handleChange = (e) => {
@@ -96,7 +108,7 @@ const Reviews = ({ movie }) => {
 
   const handleSubmit = (e) => {   
     e.preventDefault()  
-    console.log('User review:', userReview)
+    // console.log('User review:', userReview)
 
     fetch( `http://localhost:9292/movies/${id}/reviews`, {
       method: 'POST',
