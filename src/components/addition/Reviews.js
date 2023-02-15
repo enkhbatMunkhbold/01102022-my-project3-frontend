@@ -67,12 +67,18 @@ const Reviews = ({ movie }) => {
     })
   }, [setThisMovieReviews])
 
-  const handleClick = (e) => {
+  const handleDelete = (user, num) => {
+    const delBtn = document.querySelector(`#${user}`)
+    console.log(delBtn)
+    console.log(num)
+  }
+
+  const handleEdit = (e) => {
     console.log(e.target.parentNode)
   }
 
   const listMovieReviews = thisMovieReviews.map((user, index) =>     
-    <ListItem key={index} className={classes.reviewItem} >
+    <ListItem key={index} id={user.name} className={classes.reviewItem} >
       <Grid container> 
         <Grid item md={10} className="itemContainer">
           <Grid >
@@ -83,13 +89,13 @@ const Reviews = ({ movie }) => {
           <Grid >
             {user.comment}         
           </Grid>  
-        </Grid> 
+        </Grid>
         <Grid item md={1}>
-          <ClearIcon onClick={handleClick} className="clear-icon"/>
-        </Grid> 
+          <EditIcon onClick={handleEdit} className={`clear-icon ${index}`}/>
+        </Grid>    
         <Grid item md={1}>
-          <EditIcon onClick={handleClick} className="clear-icon"/>
-        </Grid>                
+          <ClearIcon onClick={() => handleDelete(user.name, index)} className="clear-icon"/>
+        </Grid>                     
       </Grid>      
     </ListItem>
   )
