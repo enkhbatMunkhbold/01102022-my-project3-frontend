@@ -4,9 +4,9 @@ import { Container, FormControl, Grid, List, TextField } from '@material-ui/core
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography } from '@mui/material';
+import { ListItem, Typography } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
-// import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -36,7 +36,12 @@ const useStyles = makeStyles((theme) => ({
   },
   reviewItem: {
     height: '5rem',
-    padding: "2px 0px 0px 15px"
+    "& .clear-icon": {
+      display: 'none'
+    },
+    "&:hover .clear-icon": {
+      display: 'block'
+    }
   }
 }));
 
@@ -44,14 +49,13 @@ const Reviews = ({ movie }) => {
   
   const { movies, setMovies } = useContext(MoviesContext)
   let { id, reviews } = movie
-  const [showBtn, setShowBtn] = useState(true)
   const [fields, setFields] = useState([])
   const [thisMovieReviews, setThisMovieReviews] = useState([])
   const [userReview, setUserReview] = useState({
     name: '',
     comment: ''
   })
-  
+ 
   const classes = useStyles();
 
   useEffect(() => {
@@ -64,22 +68,13 @@ const Reviews = ({ movie }) => {
   }, [setThisMovieReviews])
 
   const handleClick = (e) => {
-    console.log(e.target.parentNode.name)
+    console.log(e.target.parentNode)
   }
 
   const listMovieReviews = thisMovieReviews.map((user, index) =>     
-    <div key={index} 
-              className={classes.reviewItem}  id={index}            
-              onMouseOver={(e) => {
-                if(Number(e.target.id) === index){
-                  setShowBtn(true) 
-                }                
-                // console.log("Type of e.target.id:", typeof(e.target.id))
-                // console.log("Type of index:", typeof(index))
-              }}
-              onMouseOut={() => {setShowBtn(false)}}>
+    <ListItem key={index} className={classes.reviewItem} >
       <Grid container> 
-        <Grid item md={11}>
+        <Grid item md={10} className="itemContainer">
           <Grid >
             <Typography sx={{fontWeight: 'bold'}}>
               {user.name}
@@ -89,16 +84,14 @@ const Reviews = ({ movie }) => {
             {user.comment}         
           </Grid>  
         </Grid> 
-        {
-          showBtn ?  (
-            <Grid item md={1} >
-              <ClearIcon onClick={handleClick}/>
-            </Grid> 
-           ) : null
-        }         
-                
+        <Grid item md={1}>
+          <ClearIcon onClick={handleClick} className="clear-icon"/>
+        </Grid> 
+        <Grid item md={1}>
+          <EditIcon onClick={handleClick} className="clear-icon"/>
+        </Grid>                
       </Grid>      
-    </div>
+    </ListItem>
   )
 
   const handleChange = (e) => {
@@ -108,8 +101,6 @@ const Reviews = ({ movie }) => {
 
   const handleSubmit = (e) => {   
     e.preventDefault()  
-    // console.log('User review:', userReview)
-
     fetch( `http://localhost:9292/movies/${id}/reviews`, {
       method: 'POST',
       headers: {
