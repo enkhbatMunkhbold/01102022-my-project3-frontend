@@ -67,10 +67,19 @@ const Reviews = ({ movie }) => {
     })
   }, [setThisMovieReviews])
 
-  const handleDelete = (user, num) => {
-    const delBtn = document.querySelector(`#${user}`)
-    console.log(delBtn)
-    console.log(num)
+  const handleDelete = (review) => {
+    // const delBtn = document.querySelector(`#${user.name}`)    
+
+    fetch(`http://localhost:9292/movies/${id}/reviews/${review.id}`, {
+      method: 'DELETE'
+    }).then(res => res.json())
+      .then(data => console.log('Review is successfully deleted!', data))
+
+    // console.log('User:', user)
+    // console.log('selectedReview:', selectedReview)    
+    // console.log("This movie reviews:", thisMovieReviews)
+    const newReviews = thisMovieReviews.filter(r => !(r.id === review.id))
+    setThisMovieReviews(newReviews)
   }
 
   const handleEdit = (e) => {
@@ -94,7 +103,7 @@ const Reviews = ({ movie }) => {
           <EditIcon onClick={handleEdit} className={`clear-icon ${index}`}/>
         </Grid>    
         <Grid item md={1}>
-          <ClearIcon onClick={() => handleDelete(user.name, index)} className="clear-icon"/>
+          <ClearIcon onClick={() => handleDelete(user)} className="clear-icon"/>
         </Grid>                     
       </Grid>      
     </ListItem>
