@@ -6,8 +6,6 @@ import SendIcon from '@mui/icons-material/Send';
 import { makeStyles } from '@material-ui/core/styles';
 import { ListItem, Typography } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
-// import EditIcon from '@mui/icons-material/Edit';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,10 +49,10 @@ const Reviews = ({ movie }) => {
   let { id, reviews } = movie
   const [fields, setFields] = useState([])
   const [thisMovieReviews, setThisMovieReviews] = useState([])
-  const [show, setShow] = useState(true)
   const [userReview, setUserReview] = useState({
     name: '',
-    comment: ''
+    comment: '',
+    edit: false
   })
  
   const classes = useStyles();
@@ -77,10 +75,12 @@ const Reviews = ({ movie }) => {
     setThisMovieReviews(newReviews)
   }
 
-  const handleEdit = () => {
-    console.log(show)
-    setShow(false)  
+  const handleEdit = (review) => {   
+    review.edit = true 
+    console.log('Selected review:', review) 
   }
+
+  console.log('This movie reviews:', thisMovieReviews)
 
   const listMovieReviews = thisMovieReviews.map((user, index) =>     
     <ListItem key={index} id={user.name} className={classes.reviewItem} onClick={() => handleEdit(user)}>
@@ -92,8 +92,8 @@ const Reviews = ({ movie }) => {
             </Typography>
           </Grid>          
           <Grid onClick={() => handleEdit(user)}>
-            {show ? <Typography>{user.comment}</Typography> : 
-              <TextField fullWidth value={user.comment}/>}
+            { user.edit ? <TextField value={user.comment}/> :
+              <Typography>{user.comment}</Typography> }
           </Grid>  
         </Grid>   
         <Grid item md={1}>
