@@ -6,7 +6,7 @@ import SendIcon from '@mui/icons-material/Send';
 import { makeStyles } from '@material-ui/core/styles';
 import { ListItem, Typography } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
-import EditIcon from '@mui/icons-material/Edit';
+// import EditIcon from '@mui/icons-material/Edit';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,6 +51,7 @@ const Reviews = ({ movie }) => {
   let { id, reviews } = movie
   const [fields, setFields] = useState([])
   const [thisMovieReviews, setThisMovieReviews] = useState([])
+  const [show, setShow] = useState(true)
   const [userReview, setUserReview] = useState({
     name: '',
     comment: ''
@@ -65,43 +66,36 @@ const Reviews = ({ movie }) => {
       const reviewData = data.filter(m => m.movie_id === id)
       setThisMovieReviews(reviewData)
     })
-  }, [setThisMovieReviews])
+  }, [id, setThisMovieReviews])
 
   const handleDelete = (review) => {
-    // const delBtn = document.querySelector(`#${user.name}`)    
-
     fetch(`http://localhost:9292/movies/${id}/reviews/${review.id}`, {
       method: 'DELETE'
-    }).then(res => res.json())
-      .then(data => console.log('Review is successfully deleted!', data))
+    })
 
-    // console.log('User:', user)
-    // console.log('selectedReview:', selectedReview)    
-    // console.log("This movie reviews:", thisMovieReviews)
     const newReviews = thisMovieReviews.filter(r => !(r.id === review.id))
     setThisMovieReviews(newReviews)
   }
 
-  const handleEdit = (e) => {
-    console.log(e.target.parentNode)
+  const handleEdit = () => {
+    console.log(show)
+    setShow(false)  
   }
 
   const listMovieReviews = thisMovieReviews.map((user, index) =>     
-    <ListItem key={index} id={user.name} className={classes.reviewItem} >
+    <ListItem key={index} id={user.name} className={classes.reviewItem} onClick={() => handleEdit(user)}>
       <Grid container> 
-        <Grid item md={10} className="itemContainer">
+        <Grid item md={11} className="itemContainer">
           <Grid >
             <Typography sx={{fontWeight: 'bold'}}>
               {user.name}
             </Typography>
-          </Grid>
-          <Grid >
-            {user.comment}         
+          </Grid>          
+          <Grid onClick={() => handleEdit(user)}>
+            {show ? <Typography>{user.comment}</Typography> : 
+              <TextField fullWidth value={user.comment}/>}
           </Grid>  
-        </Grid>
-        <Grid item md={1}>
-          <EditIcon onClick={handleEdit} className={`clear-icon ${index}`}/>
-        </Grid>    
+        </Grid>   
         <Grid item md={1}>
           <ClearIcon onClick={() => handleDelete(user)} className="clear-icon"/>
         </Grid>                     
