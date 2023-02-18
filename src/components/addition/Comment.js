@@ -18,7 +18,7 @@ const Comment = ({ user }) => {
 
   return (
     <Grid sx={11} onClick={() => handleClick(user.comment)}>
-        { show ? <TextField fullWidth type="input" defaultValue={text} onChange={handleChange}/> :
+        { show ? <TextField fullWidth defaultValue={text} onChange={handleChange}/> :
           <Typography>{user.comment}</Typography> }
     </Grid> 
   )
