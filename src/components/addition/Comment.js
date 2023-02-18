@@ -5,19 +5,23 @@ import { Typography } from '@mui/material';
 const Comment = ({ user }) => {  
 
   const [show, setShow] = useState(false)
-  // console.log('User from comment:', user)
+  const [text, setText] = useState(user.comment)
 
-  const handleEdit = (review) => {   
+  const handleClick = () => {   
     setShow(true)
-    console.log('Selected review:', review) 
   }  
 
+  const handleChange = (e) => {
+    console.log(e.target.value)
+    setText(e.target.value)
+  }
+
   return (
-    <Grid sx={11} onClick={() => handleEdit(user.comment)}>
-        { show ? <TextField value={user.comment} /> :
+    <Grid sx={11} onClick={() => handleClick(user.comment)}>
+        { show ? <TextField fullWidth type="input" defaultValue={text} onChange={handleChange}/> :
           <Typography>{user.comment}</Typography> }
     </Grid> 
   )
 }
 
-export default Comment;
+export default Comment
