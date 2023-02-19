@@ -88,7 +88,7 @@ const Reviews = ({ movie }) => {
             { user.edit ? <TextField fillWidth value={user.comment}/> :
               <Typography>{user.comment}</Typography> }
           </Grid>   */}
-          <Comment user={user}/>
+          <Comment user={user} userReview={userReview} setUserReview={setUserReview}/>
         </Grid>   
         <Grid item md={1}>
           <ClearIcon onClick={() => handleDelete(user)} className="clear-icon"/>
