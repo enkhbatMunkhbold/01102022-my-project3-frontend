@@ -3,7 +3,7 @@ import { MoviesContext } from '../context/movies'
 import {  Grid, TextField } from '@material-ui/core';
 import { Typography } from '@mui/material';
 
-const Comment = ({ user, movie, reviews, userReview, setUserReview, thisMovieReviews, setThisMovieReviews }) => {  
+const Comment = ({ user, movie, thisMovieReviews, setThisMovieReviews }) => {  
 
   const { movies, setMovies } = useContext(MoviesContext)
   const [show, setShow] = useState(false)
@@ -19,8 +19,7 @@ const Comment = ({ user, movie, reviews, userReview, setUserReview, thisMovieRev
 
   const handleSubmit = (e) => {
     e.preventDefault()    
-    const editedComment = document.getElementById(`${user.id}`).value    
-    setUserReview({...userReview, comment: editedComment})
+    const editedComment = document.getElementById(`${user.id}`).value   
     fetch(`http://localhost:9292/movies/${movie.id}/reviews/${user.id}`,{
       method: 'PATCH',
       headers: {
@@ -31,22 +30,19 @@ const Comment = ({ user, movie, reviews, userReview, setUserReview, thisMovieRev
       })
     }).then(res => res.json())
       .then(data => {
-        console.log(data)
-        reviews = [...reviews, data]
-        thisMovieReviews.filter(r => !(r.id === data.id))
-        setThisMovieReviews([...thisMovieReviews, data])       
+        thisMovieReviews.map(r => r.id === data.id ? data : r) 
+        setThisMovieReviews(thisMovieReviews)
         movies.map(m => m.id === movie.id ? movie : m)
         setMovies(movies)
       })
     setShow(false)  
-    console.log(userReview)  
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <Grid onClick={() => handleClick()}>
-        { show ? <TextField id={`${user.id}`} defaultValue={text} onChange={handleChange}/> :
-          <Typography>{user.comment}</Typography> }
+      <Grid sx={11} onClick={() => handleClick()}>
+        { show ? <TextField fullWidth id={`${user.id}`} defaultValue={text} onChange={handleChange}/> :
+          <Typography fullWidth >{text}</Typography> }
       </Grid> 
     </form>    
   )

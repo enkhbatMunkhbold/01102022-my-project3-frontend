@@ -86,9 +86,6 @@ const Reviews = ({ movie }) => {
           </Grid> 
           <Comment user={user}
                    movie={movie} 
-                   reviews={reviews}
-                   userReview={userReview} 
-                   setUserReview={setUserReview}
                    thisMovieReviews={thisMovieReviews}
                    setThisMovieReviews={setThisMovieReviews}/>
         </Grid>   
@@ -114,7 +111,6 @@ const Reviews = ({ movie }) => {
       body: JSON.stringify(userReview)
     }).then(res => res.json())
       .then(data => {
-        console.log("Posted review:", data)
         reviews = [...reviews, data]
         setThisMovieReviews(data)
         movies.map(m => m.id === id ? movie : m)
