@@ -1,37 +1,52 @@
-import React, { useState } from 'react'
-import { FormControl, Grid, TextField } from '@material-ui/core';
+import React, { useState, useContext } from 'react'
+import { MoviesContext } from '../context/movies'
+import {  Grid, TextField } from '@material-ui/core';
 import { Typography } from '@mui/material';
 
-const Comment = ({ user, userReview, setUserReview }) => {  
+const Comment = ({ user, movie, reviews, userReview, setUserReview }) => {  
 
+  const { movies, setMovies } = useContext(MoviesContext)
   const [show, setShow] = useState(false)
   const [text, setText] = useState(user.comment)
 
-  const handleClick = () => {   
-    console.log('userReview:', userReview)
+  const handleClick = () => { 
     setShow(true)
   }  
 
   const handleChange = (e) => {
-    console.log(e.target.value)
     setText(e.target.value)
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(e.target)
-    setUserReview({...userReview, comment: text})
-    setShow(false)    
+    e.preventDefault()    
+    const editedComment = document.getElementById(`${user.id}`).value    
+    setUserReview({...userReview, comment: editedComment})
+    fetch(`http://localhost:9292/movies/${movie.id}/reviews/${user.id}`,{
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        comment: editedComment
+      })
+    }).then(res => res.json())
+      .then(data => {
+        console.log(data)
+        reviews = [...reviews, data]
+        movies.map(m => m.id === movie.id ? movie : m)
+        setMovies(movies)
+      })
+    setShow(false)  
+    console.log(userReview)  
   }
 
   return (
-    <FormControl onSubmit={handleSubmit}>
-      <Grid sx={11} onClick={() => handleClick(user.comment)}>
-        { show ? <TextField fullWidth defaultValue={text} onChange={handleChange}/> :
+    <form onSubmit={handleSubmit}>
+      <Grid onClick={() => handleClick()}>
+        { show ? <TextField id={`${user.id}`} defaultValue={text} onChange={handleChange}/> :
           <Typography>{user.comment}</Typography> }
       </Grid> 
-    </FormControl>
-    
+    </form>    
   )
 }
 

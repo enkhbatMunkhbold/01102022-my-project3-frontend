@@ -83,12 +83,12 @@ const Reviews = ({ movie }) => {
             <Typography sx={{fontWeight: 'bold'}}>
               {user.name}
             </Typography>
-          </Grid>          
-          {/* <Grid onClick={() => handleEdit(user)}>
-            { user.edit ? <TextField fillWidth value={user.comment}/> :
-              <Typography>{user.comment}</Typography> }
-          </Grid>   */}
-          <Comment user={user} userReview={userReview} setUserReview={setUserReview}/>
+          </Grid> 
+          <Comment user={user}
+                   movie={movie} 
+                   reviews={reviews}
+                   userReview={userReview} 
+                   setUserReview={setUserReview}/>
         </Grid>   
         <Grid item md={1}>
           <ClearIcon onClick={() => handleDelete(user)} className="clear-icon"/>
