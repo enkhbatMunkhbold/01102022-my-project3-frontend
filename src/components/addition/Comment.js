@@ -3,7 +3,7 @@ import { MoviesContext } from '../context/movies'
 import {  Grid, TextField } from '@material-ui/core';
 import { Typography } from '@mui/material';
 
-const Comment = ({ user, movie, reviews, userReview, setUserReview }) => {  
+const Comment = ({ user, movie, reviews, userReview, setUserReview, thisMovieReviews, setThisMovieReviews }) => {  
 
   const { movies, setMovies } = useContext(MoviesContext)
   const [show, setShow] = useState(false)
@@ -33,6 +33,8 @@ const Comment = ({ user, movie, reviews, userReview, setUserReview }) => {
       .then(data => {
         console.log(data)
         reviews = [...reviews, data]
+        thisMovieReviews.filter(r => !(r.id === data.id))
+        setThisMovieReviews([...thisMovieReviews, data])       
         movies.map(m => m.id === movie.id ? movie : m)
         setMovies(movies)
       })

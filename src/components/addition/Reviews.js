@@ -88,7 +88,9 @@ const Reviews = ({ movie }) => {
                    movie={movie} 
                    reviews={reviews}
                    userReview={userReview} 
-                   setUserReview={setUserReview}/>
+                   setUserReview={setUserReview}
+                   thisMovieReviews={thisMovieReviews}
+                   setThisMovieReviews={setThisMovieReviews}/>
         </Grid>   
         <Grid item md={1}>
           <ClearIcon onClick={() => handleDelete(user)} className="clear-icon"/>
